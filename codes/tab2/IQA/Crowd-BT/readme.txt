@@ -1,0 +1,1 @@
+tab2_IQA_CrowdBT is the code to reproduce the results of CrowdBT on IQA dataset in Tab.2.

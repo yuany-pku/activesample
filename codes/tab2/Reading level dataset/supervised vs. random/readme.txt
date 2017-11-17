@@ -1,0 +1,1 @@
+tab2_reading_supervised.m is the code the reproduce the results of supervised active sampling on reading level dataset in Tab.2.

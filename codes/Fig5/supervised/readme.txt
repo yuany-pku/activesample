@@ -1,0 +1,1 @@
+figure5_supervised.m is the code to reproduce the results of supervised active sampling in Fig.5.

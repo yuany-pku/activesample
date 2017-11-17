@@ -1,0 +1,1 @@
+tab2_supervised.m is the code to reproduce the results of supervised active sampling on VQA dataset in Tab.2.

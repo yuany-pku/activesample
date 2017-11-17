@@ -1,0 +1,1 @@
+tab2_VQA_CrowdBT is the code to reproduce the results of CrowdBT on VQA dataset in Tab.2.

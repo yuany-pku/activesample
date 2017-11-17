@@ -1,0 +1,69 @@
+function [a b]= comp_betti(incomp)
+
+ 
+video_num=16;
+ 
+ref=1;
+edge=incomp;
+edge=[edge(:,1)-(ref-1)*16 edge(:,2)-(ref-1)*16];
+triangle=[];
+count=zeros(16,16,ref);
+eps=1e-4;
+sigma=1;
+
+for i = 1:1,
+    for k = 0:15,
+        for l = 0:15,
+            grpnum1=floor((incomp(i,1)-1)/16)+1;
+            grpnum2=floor((incomp(i,2)-1)/16)+1;
+            if ((grpnum1==grpnum2) && (mod(incomp(i,1),16)==k) && (mod(incomp(i,2),16)==l)),
+                if k==0,k=16;end
+                if l==0,l=16;end
+                count(k,l,grpnum1)=count(k,l,grpnum1)+1;
+            end
+        end
+    end
+end
+c0=count(:,:,ref);   
+thresh=0;
+G=((c0+c0')>thresh);
+
+for i=1:video_num,
+    for j=(i+1):video_num,
+        for k=(j+1):video_num,
+            if ((G(i,j)>0)&&(G(j,k)>0)&&(G(k,i)>0)),
+                triangle = [triangle
+                    [i,j,k]];
+            end
+        end
+    end
+end
+
+
+startJPlex
+
+numEdges=size(edge,1);
+numTriangles=size(triangle,1);
+
+s2=ExplicitStream;
+s2.add([1:16]',[0:15]');
+s2.add(edge(:,:),[16:15+numEdges]');
+if numTriangles>0
+    s2.add(triangle(:,:),[16+numEdges:15+numEdges+numTriangles]');
+end
+s2.close
+
+int2=Plex.Persistence.computeIntervals(s2);
+betti_number=Plex.FilterInfinite(int2);
+temp3=char(toString(betti_number));
+s=sprintf('%c',temp3);
+idx=strfind(s,'{');
+idx2=strfind(s,'}');
+temp3=s(idx+1:idx2-1);
+betti_number=str2num(temp3);
+if length(betti_number)==1
+    betti_number(2)=0;
+end
+a=betti_number(1);
+b=betti_number(2);
+ 

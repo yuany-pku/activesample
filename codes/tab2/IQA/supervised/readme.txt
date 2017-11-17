@@ -1,0 +1,1 @@
+tab2_IQA_supervised.m is the code to reproduce the results of supervised active sampling on IQA dataset in Tab.2.

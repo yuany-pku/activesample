@@ -1,0 +1,1 @@
+figure3_supervised.m is to reproduce the results of supervised active sampling and random sampling in Fig.3.

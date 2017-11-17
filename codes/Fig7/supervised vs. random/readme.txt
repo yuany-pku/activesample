@@ -1,0 +1,1 @@
+figure7_supervised.m is the code the reproduce the results of supervised active sampling and random sampling in Fig.7.

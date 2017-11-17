@@ -1,0 +1,1 @@
+tab2_reading_CrowdBT.m is the code to reproduce the results of CrowdBT on reading level dataset in Tab.2.
