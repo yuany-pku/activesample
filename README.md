@@ -1,4 +1,4 @@
-# Open Source Codes for the following paper:
+# Matlab Codes for the following paper:
 # HodgeRank with Information Maximization for Crowdsourced Pairwise Ranking Aggregation
 Qianqian Xu, Jiechao Xiong, Xi Chen, Qingming Huang, Yuan Yao
 
